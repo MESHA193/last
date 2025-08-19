@@ -56,8 +56,8 @@
 
 @media (min-width: 769px) {
   .footer-contacts-center {
-    margin-left: -100px !important;
-    transform: translateX(10px) !important;
+    margin-left: 0 !important;
+    transform: none !important;
   }
 }
 
@@ -78,6 +78,33 @@
 .footer-mini-address {
   color: #9ca3af;
   font-size: 0.85rem;
+}
+
+/* Стиль ссылки политики конфиденциальности в футере */
+.footer-privacy-link {
+  color: #d1d5db !important;
+  text-decoration: none !important;
+}
+
+.footer-privacy-link:hover {
+  color: #10b981 !important;
+}
+
+/* Небольшой копирайт под контактами в центре футера */
+.footer-mini-copyright {
+  color: #9ca3af !important;
+  font-size: 0.85rem !important;
+  margin-top: 0.5rem !important;
+  display: block !important;
+}
+
+/* Центрированная компоновка футера на страницах, где требуется */
+.footer-content.footer-content-centered {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 0.5rem !important;
 }
 
 .footer-social-right {
