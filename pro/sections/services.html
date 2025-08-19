@@ -1,0 +1,153 @@
+<!-- Секция: Услуги -->
+<section id="services" class="section services-section">
+    <div class="section-header">
+        <h2 class="section-title">Наши услуги</h2>
+        <p class="section-subtitle">Комплексные экологические решения для вашего бизнеса</p>
+    </div>
+
+    <div class="services-grid">
+        <!-- 1. Проектирование -->
+        <div class="service-card">
+            <div class="service-icon">🏗️</div>
+            <h3>Проектирование</h3>
+            <p>Разработка экологической документации</p>
+            <button class="service-btn" onclick="openServiceModal('design')">Подробнее</button>
+        </div>
+
+        <!-- 2. Отчетность -->
+        <div class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>Отчетность</h3>
+            <p>Подготовка экологической отчетности</p>
+            <button class="service-btn" onclick="openServiceModal('reporting')">Подробнее</button>
+        </div>
+
+        <!-- 3. Экологическое сопровождение -->
+        <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Экологическое сопровождение</h3>
+            <p>Комплексное сопровождение предприятий</p>
+            <button class="service-btn" onclick="openServiceModal('support')">Подробнее</button>
+        </div>
+
+        <!-- 4. Экологический аудит -->
+        <div class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>Экологический аудит</h3>
+            <p>Оценка экологического соответствия</p>
+            <button class="service-btn" onclick="openServiceModal('audit')">Подробнее</button>
+        </div>
+
+        <!-- 5. Паспортизация отходов -->
+        <div class="service-card">
+            <div class="service-icon">📄</div>
+            <h3>Паспортизация отходов</h3>
+            <p>Разработка паспортов отходов</p>
+            <button class="service-btn" onclick="openServiceModal('passportization')">Подробнее</button>
+        </div>
+    </div>
+</section>
+
+<!-- Модальные окна услуг -->
+<div id="serviceModal" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="modal-header-content">
+                <div class="modal-icon" id="modalIcon">🏭</div>
+                <h3 id="modalTitle">Название услуги</h3>
+            </div>
+            <div class="modal-header-controls">
+                <button id="serviceBackBtn" class="modal-header-btn modal-back-btn" style="display: none;"
+                    onclick="closeServiceModal()">
+                    ←
+                </button>
+<button type="button" class="modal-header-btn modal-close-btn" onclick="closeAllServiceModals()">
+                    ×
+                </button>
+            </div>
+        </div>
+
+        <div class="service-modal-body">
+            <div class="modal-description" id="modalDescription">
+                Описание услуги будет здесь
+            </div>
+
+            <div class="subservices-grid" id="subservicesGrid">
+                <!-- Подуслуги будут добавлены динамически -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для заказа подуслуги -->
+<div id="subserviceOrderModal" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="modal-header-content">
+                <div class="modal-icon" id="subserviceModalIcon">📋</div>
+                <h3 id="subserviceModalTitle">Название подуслуги</h3>
+            </div>
+            <div class="modal-header-controls">
+                <button id="subserviceBackToListBtn" class="modal-header-btn modal-back-btn"
+                    onclick="backToServiceList()">
+                    ←
+                </button>
+                <button type="button" class="modal-header-btn modal-close-btn" onclick="closeAllServiceModals()">
+                    ×
+                </button>
+            </div>
+        </div>
+
+        <div class="service-modal-body">
+            <div class="modal-description" id="subserviceModalDescription">
+                Описание подуслуги
+            </div>
+
+            <div class="modal-features" id="subserviceModalFeatures">
+                <h4>Что входит в услугу:</h4>
+                <ul id="subserviceModalFeaturesList">
+                    <!-- Особенности будут добавлены динамически -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-modal-footer">
+            <div class="modal-form-section">
+                <h4>Заказать услугу</h4>
+                <form class="modal-order-form" method="POST" action="sendmail.php">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Телефон" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Дополнительная информация о проекте" rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary form-submit-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                            Отправить заявку
+                        </button>
+                        <button type="button" class="btn secondary modal-call-btn"
+                            onclick="window.location.href='tel:+79123456789'">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            Позвонить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
